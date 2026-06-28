@@ -1,0 +1,22 @@
+{
+  "name": "bertrand-qa-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiNeves/bertrand-qa-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiNeves/bertrand-qa-challenge/issues"
+  },
+  "homepage": "https://github.com/DiNeves/bertrand-qa-challenge#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.0.1"
+  }
+}
