@@ -30,7 +30,7 @@ test.describe('Test Suite', ( browserName ) => {
         const productDetailsPage = new ProductDetailsPage(page);
 
         if ( browserName === 'webkit' )
-            await mainPage.navigateToMainPage();
+            await mainPage.navigateToMainPageWebkit();
 
         await test.step('Search for book 1984', async () => {
             await headerPage.fillSearchBar(SCENARIO1.searchBook);

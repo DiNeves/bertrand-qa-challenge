@@ -26,6 +26,12 @@ export class MainPage {
         });
     };
 
+    async navigateToMainPageWebkit() {
+        await test.step('Go to main page', async () => {
+            await this.page.goto('', { waitUntil: 'domcontentloaded' });
+        });
+    };
+
     // ===== Cookies =====~
 
    /**
