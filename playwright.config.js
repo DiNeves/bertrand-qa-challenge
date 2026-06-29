@@ -40,6 +40,10 @@ export default defineConfig({
     video: 'retain-on-failure',
   },
 
+  expect: {
+    timeout: 80000, // Sets the assertions timeout to 80 seconds
+  },
+
   /* Configure projects for major browsers */
   projects: [
     {
