@@ -13,32 +13,18 @@ import { SCENARIO1 } from '../data/scenarios/scenario1.data';
  *   Check that the number of pages is "344"
  *   Ensure that the dimensions of the book are "156 x 238 x 22 mm"
  */
-test.describe('Test Suite', ( browserName ) => {
+test.describe('Test Suite Scenario 1', () => {
 
-    //if ( browserName != 'webkit' ) {
-        test.beforeEach(async ({ page, browserName }) => {
-            console.log(browserName + ' -beforeEach-IN');
-            const mainPage = new MainPage(page);
-            await mainPage.navigateToMainPage();
-            await mainPage.rejectCookies();
-            console.log(browserName + ' -beforeEach-OUT');
-        });
-    //}
-
-    test('Scenario 1', async ({ page, browserName }) => {
+    test.beforeEach(async ({ page }) => {
         const mainPage = new MainPage(page);
+        await mainPage.navigateToMainPage();
+        await mainPage.rejectCookies();
+    });
+
+    test('Scenario 1', async ({ page }) => {
         const headerPage = new HeaderPage(page);
         const productListPage = new ProductListPage(page);
         const productDetailsPage = new ProductDetailsPage(page);
-
-        /** Workaround needed because the tests on webkit passed locally, but were failing on Github Actions. 
-         *  Apparently webkit doesn't work well on Github when goTo() method is called inside test.beforeEach.
-         *  More information on the link: https://github.com/microsoft/playwright/issues/13940
-         */ 
-        //if ( browserName === 'webkit' ) {
-        //    await mainPage.navigateToMainPageWebkitOnly();
-        //    console.log(browserName + ' -webkit');
-        //}
 
         await test.step('Search for book 1984', async () => {
             await headerPage.fillSearchBar(SCENARIO1.searchBook);
