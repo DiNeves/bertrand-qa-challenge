@@ -22,7 +22,7 @@ export class MainPage {
     async navigateToMainPage() {
         await test.step('Go to main page', async () => {
             await this.page.goto('', { waitUntil: 'domcontentloaded' });
-            // await expect(this.page).toHaveTitle(MAINPAGE.labels.pageTitle);
+            await expect(this.page).toHaveTitle(MAINPAGE.labels.pageTitle);
         });
     };
 
