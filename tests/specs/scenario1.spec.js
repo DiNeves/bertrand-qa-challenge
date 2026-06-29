@@ -13,18 +13,24 @@ import { SCENARIO1 } from '../data/scenarios/scenario1.data';
  *   Check that the number of pages is "344"
  *   Ensure that the dimensions of the book are "156 x 238 x 22 mm"
  */
-test.describe('Test Suite', () => {
+test.describe('Test Suite', ( browserName ) => {
 
-    test.beforeEach(async ({ page }) => {
+    if ( browserName != 'webkit' ) {
+        test.beforeEach(async ({ page }) => {
+            const mainPage = new MainPage(page);
+            await mainPage.navigateToMainPage();
+            await mainPage.rejectCookies();
+        });
+    }
+
+    test('Scenario 1', async ({ page, browserName }) => {
         const mainPage = new MainPage(page);
-        await mainPage.navigateToMainPage();
-        await mainPage.rejectCookies();
-    });
-
-    test('Scenario 1', async ({ page }) => {
         const headerPage = new HeaderPage(page);
         const productListPage = new ProductListPage(page);
         const productDetailsPage = new ProductDetailsPage(page);
+
+        if ( browserName === 'webkit' )
+            await mainPage.navigateToMainPage();
 
         await test.step('Search for book 1984', async () => {
             await headerPage.fillSearchBar(SCENARIO1.searchBook);
