@@ -15,14 +15,15 @@ import { SCENARIO1 } from '../data/scenarios/scenario1.data';
  */
 test.describe('Test Suite', ( browserName ) => {
 
-    if ( browserName != 'webkit' ) {
+    //if ( browserName != 'webkit' ) {
         test.beforeEach(async ({ page, browserName }) => {
+            console.log(browserName + ' -beforeEach-IN');
             const mainPage = new MainPage(page);
             await mainPage.navigateToMainPage();
             await mainPage.rejectCookies();
-            console.log(browserName + ' -beforeEach');
+            console.log(browserName + ' -beforeEach-OUT');
         });
-    }
+    //}
 
     test('Scenario 1', async ({ page, browserName }) => {
         const mainPage = new MainPage(page);
@@ -34,10 +35,10 @@ test.describe('Test Suite', ( browserName ) => {
          *  Apparently webkit doesn't work well on Github when goTo() method is called inside test.beforeEach.
          *  More information on the link: https://github.com/microsoft/playwright/issues/13940
          */ 
-        if ( browserName === 'webkit' ) {
-            await mainPage.navigateToMainPageWebkitOnly();
-            console.log(browserName + ' -webkit');
-        }
+        //if ( browserName === 'webkit' ) {
+        //    await mainPage.navigateToMainPageWebkitOnly();
+        //    console.log(browserName + ' -webkit');
+        //}
 
         await test.step('Search for book 1984', async () => {
             await headerPage.fillSearchBar(SCENARIO1.searchBook);
