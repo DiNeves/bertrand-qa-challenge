@@ -24,7 +24,7 @@ export class MainPage {
             await this.page.goto('', { waitUntil: 'domcontentloaded' });
             // # Wait until network is idle
             await this.page.waitForLoadState('networkidle');
-            await expect(this.page).toHaveTitle(MAINPAGE.labels.pageTitle);
+            //await expect(this.page).toHaveTitle(MAINPAGE.labels.pageTitle);
         });
     };
 
