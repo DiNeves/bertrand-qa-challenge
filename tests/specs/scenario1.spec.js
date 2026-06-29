@@ -29,8 +29,12 @@ test.describe('Test Suite', ( browserName ) => {
         const productListPage = new ProductListPage(page);
         const productDetailsPage = new ProductDetailsPage(page);
 
+        /** Workaround needed because the tests on webkit passed locally, but were failing on Github Actions. 
+         *  Apparently webkit doesn't work well on Github when goTo() method is called inside test.beforeEach.
+         *  More information on the link: https://github.com/microsoft/playwright/issues/13940
+         */ 
         if ( browserName === 'webkit' )
-            await mainPage.navigateToMainPageWebkit();
+            await mainPage.navigateToMainPageWebkitOnly();
 
         await test.step('Search for book 1984', async () => {
             await headerPage.fillSearchBar(SCENARIO1.searchBook);
