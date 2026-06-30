@@ -23,7 +23,7 @@ test.describe('Test Suite Scenario 2', () => {
         const productListPage = new ProductListPage(page);
         const productDetailsPage = new ProductDetailsPage(page);
 
-        await test.step('Search for Book 1984', async () => {
+        await test.step('Search for First Book', async () => {
             await headerPage.fillSearchBar(SCENARIO2.expectedFirstBook);
             const productsList = productListPage.getProductsList();
             await productListPage.selectProductFromTable(SCENARIO2.productSelectedIdPosition);
@@ -35,7 +35,7 @@ test.describe('Test Suite Scenario 2', () => {
             expect(firstBookAuthor).toBe(SCENARIO2.expectedBookAuthor);
         });
 
-        await test.step('Search for Book A Quinta dos Animais', async () => {
+        await test.step('Search for Second Book', async () => {
             await headerPage.fillSearchBar(SCENARIO2.expectedSecondBook);
             const productsList = productListPage.getProductsList();
             await productListPage.selectProductFromTable(SCENARIO2.productSelectedIdPosition);

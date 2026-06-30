@@ -26,7 +26,7 @@ test.describe('Test Suite Scenario 1', () => {
         const productListPage = new ProductListPage(page);
         const productDetailsPage = new ProductDetailsPage(page);
 
-        await test.step('Search for book 1984', async () => {
+        await test.step('Search for Book', async () => {
             await headerPage.fillSearchBar(SCENARIO1.searchBook);
             const productsList = productListPage.getProductsList();
             await productListPage.selectProductFromTable(SCENARIO1.productSelectedIdPosition);
