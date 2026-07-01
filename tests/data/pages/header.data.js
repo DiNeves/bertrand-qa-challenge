@@ -2,7 +2,8 @@ export const HEADERPAGE = {
         
     labels: {
         searchInputBox: 'texto para pesquisa',
-        searchInputButton: 'pesquisar' 
+        searchInputButton: 'pesquisar',
+        cartButton: 'Cesto de compras' 
     },
 
     locators: {

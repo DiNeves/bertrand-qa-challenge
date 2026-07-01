@@ -8,12 +8,17 @@ export class HeaderPage {
         // ===== Fixed locators =====
         this.searchInputBox = page.getByRole('textbox', { name: HEADERPAGE.labels.searchInputBox });
         this.searchInputButton = page.getByRole('button', { name: HEADERPAGE.labels.searchInputButton });
+        this.cartButton = page.getByRole('button', { name: HEADERPAGE.labels.cartButton });
 
     }
 
     async fillSearchBar(searchText) {
         await this.searchInputBox.fill(searchText);
         await this.searchInputButton.click();
+    }
+
+    async openCartMenu() {
+        await this.cartButton.click();
     }
 
 }

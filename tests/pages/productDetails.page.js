@@ -10,6 +10,7 @@ export class ProductDetailsPage {
         this.isbn = page.locator(PRODUCTDETAILSPAGE.locators.isbn);
         this.numberOfPages = page.locator(PRODUCTDETAILSPAGE.locators.numberOfPages);
         this.dimensions = page.locator(PRODUCTDETAILSPAGE.locators.dimensions);
+        this.addToCartButton = page.getByRole('button', { name: PRODUCTDETAILSPAGE.labels.addToCartButton });
     }
 
     async getAuthor() {
@@ -26,6 +27,12 @@ export class ProductDetailsPage {
 
     async getBookDimensions() {
         return await this.dimensions.locator(PRODUCTDETAILSPAGE.locators.dataClassInfo).textContent();
+    }
+
+    async addToCart() {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        await expect(this.addToCartButton).toBeEnabled();
+        await this.addToCartButton.click();
     }
 
 }

@@ -1,7 +1,8 @@
 export const PRODUCTDETAILSPAGE = {
 
     labels: {
-        isbnText: 'ISBN:'
+        isbnText: 'ISBN:',
+        addToCartButton: 'Comprar'
     },
 
     locators: {
