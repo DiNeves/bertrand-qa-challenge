@@ -52,9 +52,9 @@ npx playwright test --ui
 
 **Run a specific test file**
 
-Example: Run only the Order scenarios.
+Example: Run only the test scenarios.
 ```bash
-npx playwright test specs/main.spec.js
+npx playwright test specs/scenario1.spec.js
 ```
 
 **View the Report**
